@@ -1,0 +1,49 @@
+<div class="header">
+    <div class="header-izq">
+        <h4 [routerLink]="[ '/home/productos' ]">Minimarket Plus</h4>
+    </div>
+    <div class="header-medio">
+        <input type="text" placeholder="Buscar productos.." name="search" >
+    </div>
+    <div class="header-der">
+        <button [routerLink]="[ '/home/cart' ]">
+            <img src="https://image.flaticon.com/icons/png/512/3144/3144456.png" alt="" width="20px">
+        </button>
+        <button>
+            <img src="https://image.flaticon.com/icons/png/512/1077/1077063.png" alt="" width="20px">
+        </button>
+        <button (click)="logout()">
+            <img src="https://image.flaticon.com/icons/png/512/1828/1828427.png" alt="" width="20px">
+        </button>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="card">
+        <div class="producto-info">
+            <div class="producto-titulo">
+                {{producto.nombre}}
+            </div>
+            
+        </div>
+        <div class="img-top">
+            <img [src]="producto.imagen" width="280px">
+        </div>
+        <div class="producto-info">
+            <div class="botones">
+                    <button (click)="aumentarCantidad()">+</button>
+                    <span>{{itemCompra.cantidad}}</span>
+                    <button (click)="bajarCantidad()">-</button>
+            </div>
+            <div class="producto-precio">
+                {{producto.precio * itemCompra.cantidad | currency:'S/.'}}
+            </div>
+        </div>
+        <div class="botones action">
+            <button (click)="addItem(producto)">Agregar a carrito</button>
+         </div>
+        
+    </div>
+    
+</div>

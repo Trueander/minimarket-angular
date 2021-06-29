@@ -1,0 +1,64 @@
+.container{
+    width: 40%;
+    margin: auto;
+    height: 87vh;
+    background-color: #fff;
+    
+}
+
+.card {
+    width: 30rem;
+    padding: 40px 60px;
+    margin: auto;
+}
+
+.img-top {
+    text-align: center;
+    border: 3px solid rgb(239 239 239);
+    border-radius: 15px;
+}
+
+.producto-info{
+    display: flex;
+    justify-content: space-between;
+}
+
+.producto-titulo{
+    font-weight: 600;
+    font-size: 30px;
+    color: #444442;
+    margin-bottom: 5px;
+}
+
+.botones button {
+    padding: 18px 25px;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    margin: 7px;
+    cursor: pointer;
+}
+
+ .action button {
+    background-color: #3a4a98;
+    color: #fff;
+    width: 98%;
+    padding: 12px 25px;
+}
+
+.botones span {
+    font-size: 18px;
+    margin: 0px 5px;
+    font-weight: 600;
+}
+
+.producto-precio {
+    display: flex;
+    align-items: center;
+    font-size: 19px;
+    font-weight: 600;
+    color: #444442;
+}
+
+
+

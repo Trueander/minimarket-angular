@@ -1,0 +1,19 @@
+<div class="header">
+    <div class="header-izq">
+        <h4 [routerLink]="[ '/home/productos' ]">Minimarket Plus</h4>
+    </div>
+    <div class="header-medio">
+        <input type="text" placeholder="Buscar productos.." name="search" >
+    </div>
+    <div class="header-der">
+        <button [routerLink]="[ '/home/cart' ]">
+            <img src="https://image.flaticon.com/icons/png/512/3144/3144456.png" alt="" width="20px">
+        </button>
+        <button>
+            <img src="https://image.flaticon.com/icons/png/512/1077/1077063.png" alt="" width="20px">
+        </button>
+        <button (click)="logout()">
+            <img src="https://image.flaticon.com/icons/png/512/1828/1828427.png" alt="" width="20px">
+        </button>
+    </div>
+</div>

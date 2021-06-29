@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="formulario">
+        <div class="titulo">
+            <img src="../../../assets/market.png" alt="" width="100px">
+            <h3>Iniciar sesión</h3>
+        </div>
+        <form>
+            <div class="inputs">
+                <label for="username">Usuario</label>
+                <input type="text" [(ngModel)]="usuario.username" name="username">
+            </div>
+            <div class="inputs">
+                <label for="password">Contraseña</label>
+                <input type="password" [(ngModel)]="usuario.password" name="password">
+            </div>
+
+            <div *ngIf="error.length > 0" class=" error">
+                <p >{{error}}</p>
+            </div>
+
+            <div class="boton">
+                <button (click)="login()" class="login">Iniciar sesión</button>
+                <button class="registrar">Registrarse</button>
+            </div>
+        </form>
+    </div>
+</div>

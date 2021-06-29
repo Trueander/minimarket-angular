@@ -1,0 +1,61 @@
+<div class="header">
+    <div class="header-izq">
+        <h4 [routerLink]="[ '/home/productos' ]">Minimarket Plus</h4>
+    </div>
+    <div class="header-medio">
+        <input type="text" placeholder="Buscar productos.." name="search" >
+    </div>
+    <div class="header-der">
+        <button [routerLink]="[ '/home/cart' ]">
+            <img src="https://image.flaticon.com/icons/png/512/3144/3144456.png" alt="" width="20px">
+        </button>
+        <button>
+            <img src="https://image.flaticon.com/icons/png/512/1077/1077063.png" alt="" width="20px">
+        </button>
+        <button (click)="logout()">
+            <img src="https://image.flaticon.com/icons/png/512/1828/1828427.png" alt="" width="20px">
+        </button>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="items">
+        <div class="item" *ngFor="let item of compra.items">
+            <div class="producto-nombre">
+                <div class="nombre">
+                    {{item.producto.nombre}}
+                </div>
+                <div>
+                    <button (click)="eliminarCartItem(item)">x</button>
+                </div>
+            </div>
+            <div class="producto-cantidad">
+                <div class="botones">
+                    <button (click)="aumentarCantidad(item)">+</button>
+                    <span>{{item.cantidad}}</span>
+                    <button (click)="bajarCantidad(item)">-</button>
+                </div>
+            <div class="producto-precio">
+                {{item.producto.precio * item.cantidad | currency:'S/.'}}
+            </div>
+            </div>
+        </div>
+    </div>
+    <div class="info-pago">
+        <div class="info">
+            <div class="cantidad">
+                {{compra.items.length}} ARTÍCULOS
+            </div>
+        <div class="producto-precio-final">
+            {{compra.calcularImporteFinal() | currency:'S/.'}}
+        </div>
+        </div>
+        <div class="btn-compra">
+            <button (click)="realizarCompra()">REALIZAR COMPRA</button>
+        </div>
+        <div class="btn-compra back">
+            <button [routerLink]="[ '/home/productos' ]">SEGUIR COMPRANDO</button>
+        </div>
+    </div>
+</div>
