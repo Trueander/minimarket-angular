@@ -5,6 +5,7 @@ import { ItemCompra } from 'src/app/models/item-compra';
 import { CarritoService } from 'src/app/services/carrito.service';
 import { CompraService } from 'src/app/services/compra.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-carrito',
@@ -38,13 +39,41 @@ export class CarritoComponent implements OnInit {
   }
 
   realizarCompra(): void {
-    this.compraService.crearCompra(this.compra)
-        .subscribe(response => {
-          console.log('COMPRA REALIZADA', response);
-          this.router.navigate(['/home/productos']);
-          this.cartService.limpiarCarritoCompras();
-          alert(`${this.compra.usuario.nombre}, su compra se realizó con éxito!`);
-        });
+
+
+    if(this.compra.items.length > 0){
+      Swal.fire({
+        title: 'Compra',
+        text: "¿Está seguro de realizar la compra?",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Sí, confirmar'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          this.compraService.crearCompra(this.compra)
+          .subscribe(response => {
+            this.router.navigate(['/home/productos']);
+            this.cartService.limpiarCarritoCompras();
+  
+            Swal.fire(
+              'Compra Realizada!',
+              `${this.compra.usuario.nombre}, su compra se realizó con éxito.`,
+              'success'
+            )
+  
+  
+          });
+  
+        }
+      })
+  
+    }else{
+      Swal.fire('Espere...','Tiene que agregar al menos un producto para realizar la compra.', 'warning');
+    }
+
+    
   }
 
   existeItem(id: number): boolean{

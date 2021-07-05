@@ -5,6 +5,7 @@ import { Producto } from 'src/app/models/producto';
 import { DataServiceService } from 'src/app/services/data-service.service';
 import { ProductoService } from 'src/app/services/producto.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-productos',
@@ -57,6 +58,7 @@ export class ProductosComponent implements OnInit {
   logout(): void {
     this.usuarioService.logout();
     this.router.navigate(['']);
+    Swal.fire('Good bye','Ha cerrado sesión con éxito', 'success');
   }
 
 }

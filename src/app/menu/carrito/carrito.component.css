@@ -1,8 +1,6 @@
 .container{
     width: 70%;
-    height: 87vh;
     margin: auto;
-    background-color: #fff;
     display: grid;
     grid-template-columns: 1fr 1fr;
     padding: 20px 0;
@@ -16,7 +14,10 @@
 
 .item, .info {
     border: 1px solid #f3f3f3 ;
+    border-radius: 10px;
+    margin-bottom: 10px;
     
+    background-color: #fff;
 }
 
 .item .producto-nombre, .item .producto-cantidad, .info {
@@ -61,7 +62,7 @@
 }
 
 .btn-compra button {
-    background-color: #3a4a98;
+    background-color: #007bff;
     color: #fff;
     width: 98%;
     padding: 12px 25px;

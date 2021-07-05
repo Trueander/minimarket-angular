@@ -5,6 +5,7 @@ import { Producto } from 'src/app/models/producto';
 import { CarritoService } from 'src/app/services/carrito.service';
 import { ProductoService } from 'src/app/services/producto.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-producto-detalle',
@@ -44,6 +45,11 @@ export class ProductoDetalleComponent implements OnInit {
     this.itemCompra.producto = producto;
     this.cartService.agregarCartItems(this.itemCompra);
     this.router.navigate(['/home/cart']);
+    Swal.fire(
+      'Producto agregado!',
+      `Se agregó ${this.itemCompra.cantidad} ${this.producto.nombre} al carrito de compras.`,
+      'success'
+    )
       
   }
 

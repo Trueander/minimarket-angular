@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Usuario } from 'src/app/models/usuario';
 import { UsuarioService } from 'src/app/services/usuario.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -27,6 +28,7 @@ export class LoginComponent implements OnInit {
           }else {
             this.router.navigate(['/home/productos']);
             this.usuarioService.saveUsuarioLocal(this.usuario.username);
+            Swal.fire('Login exitoso','Bienvenido', 'success');
           }
         });
   }

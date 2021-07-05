@@ -1,7 +1,7 @@
 <div class="container">
     <div class="formulario">
         <div class="titulo" style="padding: 0;">
-            <h3>Registrar</h3>
+            <h3>Nuevo usuario</h3>
         </div>
         <form>
             <div class="inputs">
@@ -27,7 +27,7 @@
 
             <div class="boton">
                 <button (click)="crearUsuario()" class="login">Registrarse</button>
-                <button class="registrar">Iniciar sesión</button>
+                <button class="registrar" [routerLink]="[ '/']">Iniciar sesión</button>
             </div>
         </form>
     </div>
